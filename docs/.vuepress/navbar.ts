@@ -5,7 +5,6 @@ export default navbar([
     "/",
         {
             text: 'Java',
-            icon: "mdi:language-java",
             prefix: 'guide/Java/',
             children: [
                 { text: 'JavaSE', link: 'javaSE' },
@@ -14,12 +13,22 @@ export default navbar([
         },
         {
             text: '数据结构和算法',
-            icon: "carbon:data-structured",
-            link: 'guide/计算机408/数据结构与算法/'
+            prefix:"guide/计算机408/数据结构与算法/",
+            link: ''
         },
         {
             text: "计算机408",
-            icon: "circle-info",
-            children: ["guide/计算机408/数据库原理", "guide/计算机408/计算机网络"],
+            prefix:"guide/计算机408/",
+            children: [
+                { text: '数据库原理', link: '数据库原理' },
+                { text: '计算机网络', link: '计算机网络' },
+            ],
+        },
+        {
+            text: "其他",
+            prefix:"guide/其他/",
+            children: [
+                { text: 'github', link: 'github' },
+            ],
         },
 ]);
