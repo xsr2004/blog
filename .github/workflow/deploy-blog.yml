@@ -1,0 +1,41 @@
+name: deploy-blog
+
+on:
+  # 每当 push 到 main 分支时触发部署
+  push:
+    branches: [master]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
+
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v3
+        with:
+          # 选择要使用的 node 版本
+          node-version: 16.17
+          # 缓存 npm 依赖
+          cache: npm
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 构建dist
+        run: vuepress build docs
+
+      - name: 部署文档到 GitHub Pages 中
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # 部署到 master 分支
+          branch: master
+          # 部署目录为 VuePress 的默认输出目录
+          folder: docs/.vuepress/dist
+#        env:
+#          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

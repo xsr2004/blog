@@ -5,8 +5,8 @@ export default sidebar([
     "/",
     {
         text: 'Java',
-        icon: "mdi:language-java",
         prefix: 'guide/Java/',
+        collapsible: true,
         children: [
             { text: 'JavaSE', link: 'javaSE' },
             { text: 'JavaEE', link: 'javaEE' },
@@ -14,12 +14,20 @@ export default sidebar([
     },
     {
         text: '数据结构和算法',
-        icon: "carbon:data-structured",
+        collapsible: true,
         link: 'guide/计算机408/数据结构与算法/'
     },
     {
         text: "计算机408",
-        icon: "circle-info",
+        collapsible: true,
         children: ["guide/计算机408/数据库原理", "guide/计算机408/计算机网络"],
+    },
+    {
+        text: "其他",
+        prefix:"guide/其他/",
+        collapsible: true,
+        children: [
+            { text: 'github', link: 'github' },
+        ],
     },
 ]);

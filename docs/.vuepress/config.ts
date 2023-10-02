@@ -2,38 +2,39 @@
 import { defineUserConfig } from "vuepress";
 // @ts-ignore
 import { hopeTheme } from "vuepress-theme-hope";
+import { copyrightPlugin } from "vuepress-plugin-copyright2";
 import navbar from "./navbar";
 import sidebar from "./sidebar"
 export default defineUserConfig({
-    base: "/",
+    base: "/blog/",
     lang: "zh-CN",
-    title: "薛哥",
-    description: "薛哥的博客",
+    title: "小酥肉",
+    description: "小酥肉的博客",
     theme: hopeTheme({
-            hostname: "https://xsr2004.github.io",
-
+        hostname: "https://xsr2004.github.io",
             author: {
-                name: "薛哥",
+                name: "xsr2004",
                 url: "https://xsr2004.github.io",
             },
             logo: "/logo.jpg",
-            // 关键词: "iconfont", "iconify", "fontawesome", "fontawesome-with-brands"
-            iconAssets: "fontawesome",
-            //
-            // // 你想要的 URL
-            // iconAssets: "/base/my/font-icon/resource.js",
-            //
-            // // 上述内容的数组
-            // iconAssets: [
-            //     "/base/my/font-icon/resource.js",
-            //     "https://example/my/fonr-icon/resouce.css",
-            //     "fontawesome",
-            // ],
+            iconAssets: "iconify",
             fullscreen: true,
             navbar,
             sidebar,
+            repo: "xsr2004/blog",
+            repoLabel: "GitHub",
+            repoDisplay: true,
             metaLocales: {
                 editLink: "在 GitHub 上编辑此页",
             },
-        }),
+            displayFooter:true,
+            plugins:{
+                comment: {
+                    provider: "Waline",
+                    // waline 模式下
+                    serverURL: "https://myblog-beige-pi.vercel.app/", // your serverURL
+                },
+            }
+
+    }),
 });

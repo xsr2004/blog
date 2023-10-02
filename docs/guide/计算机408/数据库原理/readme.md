@@ -1,4 +1,4 @@
-#数据库原理
+# 数据库原理
 ---
 title: 计算机网络
 date: 2020-02-03 10:56:00
@@ -68,3 +68,9 @@ categories:
 ## 🚪 传送
 
 ◾ 💧 [钝悟的 IT 知识图谱](https://dunwu.github.io/waterdrop/) ◾
+
+```java
+public static void main(String[]args){
+        
+}
+```
