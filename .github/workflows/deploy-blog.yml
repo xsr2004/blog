@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: 构建dist
-        run: vuepress build docs
+        run: npm run docs:build
 
       - name: 部署文档到 GitHub Pages 中
         uses: JamesIves/github-pages-deploy-action@v4
